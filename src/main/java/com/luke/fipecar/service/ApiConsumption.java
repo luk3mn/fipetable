@@ -7,11 +7,13 @@ import java.net.http.HttpResponse;
 
 public class ApiConsumption {
 
-    private final URI ENDPOINT = URI.create("https://parallelum.com.br/fipe/api/v1/carros/marcas");
+//    private String address;
+    private final URI BASE_ENDPOINT = URI.create("https://parallelum.com.br/fipe/api/v1/");
 
-    public String getData() {
+    public String extractData(String address) {
+
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(ENDPOINT)
+                .uri(URI.create(BASE_ENDPOINT + address))
                 .build();
 
         try {
